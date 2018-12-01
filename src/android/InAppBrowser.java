@@ -1132,6 +1132,8 @@ public class InAppBrowser extends CordovaPlugin {
         @Override
         public boolean shouldOverrideUrlLoading(WebView webView, String url) {
             boolean override = false;
+               
+            LOG.e(LOG_TAG, "DAT!")
 
             // On first URL change, initiate JS callback. Only after the beforeload event, continue.
             if (this.waitForBeforeload) {
@@ -1156,7 +1158,7 @@ public class InAppBrowser extends CordovaPlugin {
                     LOG.e(LOG_TAG, "Error dialing " + url + ": " + e.toString());
                 }
             } else if (url.startsWith("dat:")) {
-                LOG.e(LOG_TAG, 'DAT!')
+                LOG.e(LOG_TAG, "DAT!")
             } else if (url.startsWith("geo:") || url.startsWith(WebView.SCHEME_MAILTO) || url.startsWith("market:") || url.startsWith("intent:")) {
                 try {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
